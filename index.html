@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07100b">
+  <title>ظلّ النظام | لوحة الأدوات</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">⌁</span><span>ظِلّ <b>النظام</b><small>SHADOW SYSTEM // LOCAL TOOLS</small></span></a>
+    <div class="top-status"><span class="pulse"></span> النظام يعمل <span class="divider">|</span><span id="clock">--:--:--</span></div>
+    <button id="menuBtn" class="icon-btn" aria-label="فتح القائمة">☰</button>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-label">لوحة التحكم</div>
+      <button class="nav-item active" data-view="home"><span>▦</span> نظرة عامة</button>
+      <button class="nav-item" data-view="scanner"><span>⌕</span> فاحص النصوص والأكواد</button>
+      <button class="nav-item" data-view="formatter"><span>{ }</span> منسّق النصوص</button>
+      <button class="nav-item" data-view="password"><span>⌑</span> مولّد كلمات المرور</button>
+      <button class="nav-item" data-view="hash"><span>#</span> بصمة SHA-256</button>
+      <button class="nav-item" data-view="notes"><span>▤</span> الملاحظات المحلية</button>
+      <div class="side-card"><div class="mini-orb">⌁</div><b>وضع محلي آمن</b><p>الأدوات تعمل داخل متصفحك. لا يوجد حساب أو API.</p><span class="status-line">● اتصال محلي فقط</span></div>
+      <div class="side-footer">BUILD 1.0.0 · DEMO MODE</div>
+    </aside>
+
+    <main class="main">
+      <section class="view active" id="view-home">
+        <div class="eyebrow"><span class="tiny-dot"></span> واجهة التحكم الرئيسية</div>
+        <h1>مرحبًا بك في <span class="green">ظلّ النظام</span></h1>
+        <p class="intro">مساحة أدوات تقنية بطابع مستقبلي. افحص النصوص، رتّب الأكواد، وأنشئ أدواتك — وكل ذلك محليًا دون إرسال بياناتك إلى خادم.</p>
+        <div class="hero">
+          <div class="hero-copy"><div class="tag">LOCAL TOOLKIT / ONLINE STYLE</div><h2>تحكّم. حلّل. أنجز.</h2><p>واجهة خيالية مستوحاة من شاشات الأمن السيبراني، بأدوات عملية وليست مجرد مؤثرات شكلية.</p><button class="primary-btn" data-go="scanner">ابدأ الفحص <span>←</span></button></div>
+          <div class="radar"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div><div class="radar-cross"></div><span class="radar-center">SS</span><span class="radar-label">LOCAL<br>SCANNER</span></div>
+        </div>
+        <div class="section-heading"><div><span class="tiny-dot"></span><h2>الأدوات المتاحة</h2></div><span class="muted">06 MODULES</span></div>
+        <div class="tool-grid">
+          <button class="tool-card" data-go="scanner"><span class="tool-icon">⌕</span><b>فاحص النصوص والأكواد</b><p>اكتشاف مؤشرات وأخطاء شائعة بشكل مبدئي.</p><span class="card-link">فتح الأداة ↗</span></button>
+          <button class="tool-card" data-go="formatter"><span class="tool-icon">{ }</span><b>منسّق النصوص</b><p>تنظيف المسافات وترتيب الأسطر وتحويل حالة الأحرف.</p><span class="card-link">فتح الأداة ↗</span></button>
+          <button class="tool-card" data-go="password"><span class="tool-icon">⌑</span><b>مولّد كلمات المرور</b><p>إنشاء كلمة مرور عشوائية محليًا.</p><span class="card-link">فتح الأداة ↗</span></button>
+          <button class="tool-card" data-go="hash"><span class="tool-icon">#</span><b>بصمة SHA-256</b><p>إنشاء بصمة رقمية للنص داخل المتصفح.</p><span class="card-link">فتح الأداة ↗</span></button>
+          <button class="tool-card" data-go="notes"><span class="tool-icon">▤</span><b>الملاحظات المحلية</b><p>حفظ ملاحظاتك على هذا الجهاز فقط.</p><span class="card-link">فتح الأداة ↗</span></button>
+          <div class="tool-card info-card"><span class="tool-icon">◈</span><b>خصوصيتك أولًا</b><p>لا توجد اتصالات بخدمات خارجية أو مفاتيح API.</p><span class="card-link">LOCAL BY DESIGN</span></div>
+        </div>
+        <div class="terminal"><div class="terminal-head"><span><i></i><i></i><i></i> TERMINAL / SYSTEM LOG</span><button id="clearLog">مسح السجل</button></div><div id="logOutput" class="terminal-body"><p><span>[00:00:01]</span> ظلّ النظام جاهز.</p><p><span>[00:00:02]</span> تم تحميل الأدوات المحلية.</p><p><span>[00:00:03]</span> <b>تنبيه:</b> الفحص استدلالي ولا يثبت أن الكود آمن أو يعمل.</p></div></div>
+      </section>
+
+      <section class="view" id="view-scanner">
+        <div class="eyebrow"><span class="tiny-dot"></span> MODULE 01 / SCANNER</div><h1>فاحص النصوص <span class="green">والأكواد</span></h1>
+        <p class="intro">يفحص النص محليًا بحثًا عن مؤشرات بسيطة مثل الأقواس غير المتوازنة، الأسطر الفارغة، وبعض الأنماط الحساسة. ليس مشغّلًا للكود ولا فحصًا أمنيًا كاملًا.</p>
+        <div class="panel"><label for="scanInput">أدخل النص أو الكود</label><textarea id="scanInput" spellcheck="false" placeholder="الصق الكود هنا...&#10;مثال: local part = workspace:WaitForChild(&quot;Part&quot;)"></textarea><div class="actions"><button id="scanBtn" class="primary-btn">بدء الفحص ↗</button><button id="scanExample" class="secondary-btn">تحميل مثال</button><button id="clearScan" class="secondary-btn">مسح</button></div></div>
+        <div class="results panel"><div class="section-heading"><div><span class="tiny-dot"></span><h2>نتائج التحليل</h2></div><span id="scanSummary" class="muted">بانتظار الفحص</span></div><div id="scanResults" class="result-list"><div class="empty">⌕<p>ألصق النص ثم اضغط «بدء الفحص» لعرض النتائج.</p></div></div></div>
+      </section>
+
+      <section class="view" id="view-formatter">
+        <div class="eyebrow"><span class="tiny-dot"></span> MODULE 02 / TEXT LAB</div><h1>مختبر <span class="green">النصوص</span></h1><p class="intro">أدوات تنسيق سريعة تعمل على النص الذي تدخله فقط.</p>
+        <div class="panel"><label for="formatInput">النص المراد تنسيقه</label><textarea id="formatInput" placeholder="اكتب أو الصق النص هنا..."></textarea><div class="actions wrap"><button class="primary-btn" data-format="trim">تنظيف المسافات</button><button class="secondary-btn" data-format="lines">إزالة الأسطر الفارغة</button><button class="secondary-btn" data-format="upper">أحرف كبيرة (A-Z)</button><button class="secondary-btn" data-format="lower">أحرف صغيرة (a-z)</button><button class="secondary-btn" data-format="sort">ترتيب الأسطر</button></div><label for="formatOutput">النتيجة</label><textarea id="formatOutput" readonly placeholder="ستظهر النتيجة هنا..."></textarea><button id="copyFormat" class="secondary-btn">نسخ النتيجة</button></div>
+      </section>
+
+      <section class="view" id="view-password">
+        <div class="eyebrow"><span class="tiny-dot"></span> MODULE 03 / KEYGEN</div><h1>مولّد <span class="green">كلمات المرور</span></h1><p class="intro">أنشئ كلمة مرور عشوائية باستخدام مولّد عشوائي المتصفح عند توفره.</p>
+        <div class="panel"><label for="passLength">طول كلمة المرور: <b id="lengthValue">18</b></label><input id="passLength" type="range" min="8" max="64" value="18"><div class="check-grid"><label><input id="useUpper" type="checkbox" checked> أحرف كبيرة</label><label><input id="useLower" type="checkbox" checked> أحرف صغيرة</label><label><input id="useNumbers" type="checkbox" checked> أرقام</label><label><input id="useSymbols" type="checkbox" checked> رموز</label></div><button id="generatePass" class="primary-btn">إنشاء كلمة مرور ↗</button><div class="output-row"><input id="passOutput" readonly placeholder="ستظهر كلمة المرور هنا"><button id="copyPass" class="secondary-btn">نسخ</button></div><p id="passStrength" class="muted">نصيحة: استخدم كلمة مرور فريدة لكل حساب.</p></div>
+      </section>
+
+      <section class="view" id="view-hash">
+        <div class="eyebrow"><span class="tiny-dot"></span> MODULE 04 / HASH LAB</div><h1>بصمة <span class="green">SHA-256</span></h1><p class="intro">حوّل أي نص إلى بصمة SHA-256 داخل متصفحك. البصمة ليست تشفيرًا قابلًا لفكّه.</p>
+        <div class="panel"><label for="hashInput">النص</label><textarea id="hashInput" placeholder="اكتب النص الذي تريد حساب بصمته..."></textarea><button id="hashBtn" class="primary-btn">حساب البصمة ↗</button><label for="hashOutput">SHA-256</label><textarea id="hashOutput" readonly placeholder="ستظهر البصمة هنا..."></textarea><button id="copyHash" class="secondary-btn">نسخ البصمة</button><p id="hashStatus" class="muted"></p></div>
+      </section>
+
+      <section class="view" id="view-notes">
+        <div class="eyebrow"><span class="tiny-dot"></span> MODULE 05 / LOCAL NOTES</div><h1>الملاحظات <span class="green">المحلية</span></h1><p class="intro">تُحفظ الملاحظات في مساحة التخزين المحلية للمتصفح على هذا الجهاز، وليست متزامنة مع أجهزة أخرى.</p>
+        <div class="panel"><label for="notesInput">ملاحظاتك</label><textarea id="notesInput" placeholder="اكتب ملاحظاتك هنا..."></textarea><div class="actions"><button id="saveNotes" class="primary-btn">حفظ على هذا الجهاز</button><button id="deleteNotes" class="secondary-btn">حذف الملاحظات</button></div><p id="notesStatus" class="muted">لا تحفظ كلمات المرور أو المعلومات الحساسة هنا.</p></div>
+      </section>
+      <footer class="footer">ظلّ النظام <span>•</span> أدوات محلية مجانية <span>•</span> لا يتصل بخادم خارجي</footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
